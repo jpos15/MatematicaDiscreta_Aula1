@@ -18,10 +18,21 @@ class Conjunto():
             self.tamanho += 1
 
     def adicionarSubConjunto(self, valor):
-        x = subContjunto.adicionarSubConjunto(valor)
-        if x:
-            self.adicionar(x)
-            print("Valor inserido com sucesso")
+        stringValor = str(valor)
+        valor = stringValor.replace(" ", "")
+        listaValor = valor.split(",")
+        listaUnConjunto = []
+
+        for i in listaValor:
+            if i not in listaUnConjunto:
+                listaUnConjunto.append(i)
+
+        self.adicionar(listaUnConjunto)
+
+        # Para adicionar um subconjunto que armazena a quantidade de itens
+        # x = subContjunto.adicionarSubConjunto(valor)
+        # if x:
+        #     self.adicionar(x)
 
     def imprimir(self):
         result = ""
