@@ -1,3 +1,6 @@
+import SubConjunto
+
+subContjunto = SubConjunto.SubConjunto()
 
 class Conjunto():
 
@@ -10,18 +13,26 @@ class Conjunto():
         self.nome = nome
 
     def adicionar(self, valor):
-        if valor in self.elementos:
-            print("Deu ruim")
-        else:
+        if valor not in self.elementos:
             self.elementos.append(valor)
             self.tamanho += 1
+
+    def adicionarSubConjunto(self, valor):
+        x = subContjunto.adicionarSubConjunto(valor)
+        if x:
+            self.adicionar(x)
             print("Valor inserido com sucesso")
-            # print(self.elementos)
 
     def imprimir(self):
         result = ""
-        for i in self.elementos:
-            result += str(i) + ","
-        print( self.nome, "= " "{",result,"}")
-        # print(self.nome, self.elementos)
-        # print("Tamanho do conjunto:", self.tamanho)
+        elemento = str(self.elementos)
+        elemento = elemento.replace("[", "{")
+        elemento = elemento.replace("]", "}")
+        elemento = elemento.replace("'", "")
+        print(self.nome, "=", elemento)
+    
+    def tamanhoConjunto(self):
+        print("Tamanho do conjunto:", self.tamanho)
+
+    def tamanhoSubConjunto(self):
+        print("Tamanho do subconjunto:", subContjunto.tamanhoSubConjunto())
