@@ -39,7 +39,7 @@ class Conjunto():
         elemento = elemento.replace("]", "}")
         elemento = elemento.replace("'", "")
         print(self.nome, "=", elemento)
-        print(self.elementos)
+        # print(self.elementos)
     
     def tamanhoConjunto(self):
         print("|" + self.nome + "|" , "=", self.tamanho)
