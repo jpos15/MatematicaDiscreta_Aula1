@@ -5,6 +5,7 @@ c = Conjunto.Conjunto()
 c.nomeConjunto("A")
 
 # Adicionando itens ao conjunto
+# No momento tem que inserir o cojunto dessa forma, sem virgula somente uma string
 c.adicionar("abc")
 
 # Adicionando dois subconjuntos
