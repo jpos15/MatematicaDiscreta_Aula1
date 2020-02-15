@@ -1,7 +1,3 @@
-import SubConjunto
-
-subContjunto = SubConjunto.SubConjunto()
-
 class Conjunto():
 
     def __init__(self):
@@ -9,30 +5,32 @@ class Conjunto():
         self.nome = None
         self.tamanho = 0
 
+    def __str__(self):
+        return str(self.elementos)
+
     def nomeConjunto(self, nome):
         self.nome = nome
 
+    def limparString(self, valor):
+        stringValor = valor.replace(" ", "")
+        listaValor = stringValor.split(",")
+        return listaValor
+
     def adicionar(self, valor):
-        if valor not in self.elementos:
-            self.elementos.append(valor)
-            self.tamanho += 1
+        # listaValor = self.limparString(valor)
+        for i in valor:
+            if i not in self.elementos:
+                self.elementos.append(i)
+                self.tamanho += 1
 
     def adicionarSubConjunto(self, valor):
-        stringValor = str(valor)
-        valor = stringValor.replace(" ", "")
-        listaValor = valor.split(",")
-        listaUnConjunto = []
-
+        listaValor = self.limparString(valor)
+        c = Conjunto()
         for i in listaValor:
-            if i not in listaUnConjunto:
-                listaUnConjunto.append(i)
-
-        self.adicionar(listaUnConjunto)
-
-        # Para adicionar um subconjunto que armazena a quantidade de itens
-        # x = subContjunto.adicionarSubConjunto(valor)
-        # if x:
-        #     self.adicionar(x)
+            if i not in c.elementos:
+                c.adicionar(i)
+                c.tamanho += 1
+        self.adicionar([c.elementos])
 
     def imprimir(self):
         result = ""
@@ -41,9 +39,27 @@ class Conjunto():
         elemento = elemento.replace("]", "}")
         elemento = elemento.replace("'", "")
         print(self.nome, "=", elemento)
+        print(self.elementos)
     
     def tamanhoConjunto(self):
-        print("Tamanho do conjunto:", self.tamanho)
+        print("|" + self.nome + "|" , "=", self.tamanho)
 
-    def tamanhoSubConjunto(self):
-        print("Tamanho do subconjunto:", subContjunto.tamanhoSubConjunto())
+    def pertence(self, valor):
+        if valor in self.elementos:
+            print("Pertence")
+        else:
+            print("Não pertence")
+
+    def contem(self, valor):
+        if valor in self.elementos:
+            print("Contem")
+            return True
+        else:
+            print("Não contem")
+            return False
+
+    def contemPropriamente(self, valor):
+        if (self.contem(valor)):
+            self.elementos.remove(valor)
+            if len(self.elementos) >= 1:
+                print("O Conjunto está contido propriamente ")                
