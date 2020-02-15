@@ -20,11 +20,15 @@ c.pertence("a")
 c.pertence("b")
 c.pertence("b")
 c.pertence("d")
+
+# No momento tem que passar como lista, mas será alterado
 c.pertence(["1","2","3"])
 
+# No momento tem que passar como lista, mas será alterado
 c.contem(["1","2","4"])
 c.contem(["1","2","3"])
 
+# No momento tem que passar como lista, mas será alterado
 c.contemPropriamente(["1","2","3"])
 
 
