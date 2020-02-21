@@ -17,49 +17,69 @@ class Conjunto():
         return listaValor
 
     def adicionar(self, valor):
-        # listaValor = self.limparString(valor)
-        for i in valor:
+        listaValor = self.limparString(valor)
+        for i in listaValor:
             if i not in self.elementos:
                 self.elementos.append(i)
                 self.tamanho += 1
 
     def adicionarSubConjunto(self, valor):
+        self.elementos.append(valor)
+        self.tamanho += 1
+
+    def SubConjunto(self, valor):
         listaValor = self.limparString(valor)
         c = Conjunto()
         for i in listaValor:
             if i not in c.elementos:
                 c.adicionar(i)
                 c.tamanho += 1
-        self.adicionar([c.elementos])
+        self.adicionarSubConjunto(c.elementos)
 
-    def imprimir(self):
-        result = ""
-        elemento = str(self.elementos)
+    def limpar(self, listaStr):
+        elemento = listaStr
+        # print(elemento)
         elemento = elemento.replace("[", "{")
         elemento = elemento.replace("]", "}")
         elemento = elemento.replace("'", "")
+        return elemento
+
+    def imprimir(self):
+        elemento = str(self.elementos)
+        elemento = self.limpar(elemento)
         print(self.nome, "=", elemento)
-        # print(self.elementos)
     
     def tamanhoConjunto(self):
         print("|" + self.nome + "|" , "=", self.tamanho)
 
     def pertence(self, valor):
-        if valor in self.elementos:
-            print("Pertence")
+        listaElementos = self.limpar(str(self.elementos))
+
+        elemento = str(valor)
+        elemento = self.limpar(elemento)
+        if elemento in listaElementos:
+            print(elemento, "pertence ao conjunto:", listaElementos)
         else:
-            print("Não pertence")
+            print(elemento, "não pertence ao conjunto", listaElementos)
 
     def contem(self, valor):
-        if valor in self.elementos:
-            print("Contem")
+        listaElementos = self.limpar(str(self.elementos))
+
+        elemento = str(valor)
+        elemento = self.limpar(elemento)
+        if elemento in listaElementos:
+            print("O conjunto:", elemento, "está contido no conjunto:", listaElementos)
             return True
         else:
-            print("Não contem")
+            print("O conjunto:", elemento, "não está contifo no conjunto:", listaElementos)
             return False
 
     def contemPropriamente(self, valor):
         if (self.contem(valor)):
-            self.elementos.remove(valor)
+            listaElementos = self.limpar(str(self.elementos))
+
+            elemento = str(valor)
+            elemento = self.limpar(elemento)
+            listaElementos.replace(elemento, '')
             if len(self.elementos) >= 1:
-                print("O Conjunto está contido propriamente ")                
+                print("E o Conjunto", elemento, "também está contido propriamente no conjunto:", listaElementos)                
