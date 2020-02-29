@@ -89,10 +89,17 @@ class Conjunto():
                 print("E o Conjunto", elemento, "também está contido propriamente no conjunto:", listaElementos)
 
     def uniaoConjuntos(self, conj1, conj2):
+        segura=[]
         if conj1.contem(conj2):
             self.adicionar(conj1.elementos)
             self.tamanho = conj1.tamanho
             self.nome = str(conj1.nome, ' ∩ ', conj2.nome)
             print(self.nome, '=', self.__str__())
         else:
-            
+            for i in conj1.elementos:
+                for a in conj2.elementos:
+                    if i == a:
+                        return False
+                    else:
+                        self.adicionar(a)
+                if 
