@@ -12,6 +12,7 @@ class Conjunto():
         self.nome = nome
 
     def limparString(self, valor):
+
         stringValor = valor.replace(" ", "")
         listaValor = stringValor.split(",")
         return listaValor
@@ -48,6 +49,9 @@ class Conjunto():
         elemento = str(self.elementos)
         elemento = self.limpar(elemento)
         print(self.nome, "=", elemento)
+
+    def imp(self, conjunto):
+        print(str(conjunto))
     
     def tamanhoConjunto(self):
         print("|" + self.nome + "|" , "=", self.tamanho)
@@ -82,4 +86,24 @@ class Conjunto():
             elemento = self.limpar(elemento)
             listaElementos.replace(elemento, '')
             if len(self.elementos) >= 1:
-                print("E o Conjunto", elemento, "também está contido propriamente no conjunto:", listaElementos)                
+                print("E o Conjunto", elemento, "também está contido propriamente no conjunto:", listaElementos)
+
+    def uniao(self, conjunto1, conjunto2):
+        if len(conjunto1.elementos) != 0 and len(conjunto2.elementos) != 0:
+            if conjunto1.elementos == conjunto2.elementos:
+                self.elementos = conjunto1.elementos
+                print('É igual')
+            else:
+                print('É diferente')
+                self.elementos = conjunto1.elementos
+                for i in conjunto2.elementos:
+                    self.adicionar(i)
+
+            if len(conjunto1.elementos) == 0:
+                self.elementos = conjunto2.elementos
+            if len(conjunto2.elementos) == 0:
+                self.elementos = conjunto1.elementos
+        else:
+            print('Os conjuntos são vazio')
+
+        # print(conjunto1.elementos, conjunto2.elementos)

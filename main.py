@@ -1,26 +1,38 @@
-import Conjunto
-c = Conjunto.Conjunto()
+from Conjunto import *
+
+a = Conjunto()
 
 # Nome do conjunto
-c.nomeConjunto("A")
+a.nomeConjunto('A')
 
 # Adicionando itens ao conjunto
-c.adicionar("a, b, c")
+# a.adicionar('a, b, c')
+a.adicionar('1,2,3,5,6,7')
+
+b = Conjunto()
+b.nomeConjunto('B')
+b.adicionar('2,3,5')
+
+d = Conjunto()
+d.nomeConjunto('Conjunto união')
+d.uniao(a, b)
+d.imprimir()
 
 # Adicionando subconjuntos
-c.SubConjunto("1, 2, 3")
+# c.SubConjunto("1, 2, 3")
 
 # Adicionando itens ao conjunto
-c.adicionar("d, e, f")
+# c.adicionar("d, e, f")
 
 # Adicionando subconjuntoss
-c.SubConjunto("4, 5, 6")
+# c.SubConjunto("4, 5, 6")
 
 # Imprimindo o conjunto completo
-c.imprimir()
+# a.imprimir()
+# b.imprimir()
 
 # Imprimindo o tamanho do conjunto
-c.tamanhoConjunto()
+# c.tamanhoConjunto()
 
 # Verificando se os elementos pertencem ao conjunto
 # c.pertence("a")
@@ -35,9 +47,7 @@ c.tamanhoConjunto()
 # c.contem({1,2,3})
 
 # No momento tem que passar como lista, mas será alterado
-c.contemPropriamente({1,2,3})
+# c.contemPropriamente({1,2,3})
 
 
-
-
-
+##########################################################################################################
