@@ -1,11 +1,14 @@
 import Conjunto
 c = Conjunto.Conjunto()
+d = Conjunto.Conjunto()
 
 # Nome do conjunto
 c.nomeConjunto("A")
+d.nomeConjunto("B")
 
 # Adicionando itens ao conjunto
 c.adicionar("a, b, c")
+d.adicionar("x,y,z")
 
 # Adicionando subconjuntos
 c.SubConjunto("1, 2, 3")
@@ -37,6 +40,10 @@ c.tamanhoConjunto()
 # No momento tem que passar como lista, mas será alterado
 c.contemPropriamente({1,2,3})
 
+print('Teste Uniao')
+f = Conjunto.Conjunto()
+f.uniaoConjuntos(c,d)
+f.tamanhoConjunto()
 
 
 

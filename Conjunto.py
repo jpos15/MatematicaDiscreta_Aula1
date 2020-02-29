@@ -71,8 +71,12 @@ class Conjunto():
             print("O conjunto:", elemento, "está contido no conjunto:", listaElementos)
             return True
         else:
-            print("O conjunto:", elemento, "não está contifo no conjunto:", listaElementos)
+            print("O conjunto:", elemento, "não está contido no conjunto:", listaElementos)
             return False
+
+    def removeElementos(self):
+        self.elementos = []
+        self.tamanho = 0
 
     def contemPropriamente(self, valor):
         if (self.contem(valor)):
@@ -82,4 +86,13 @@ class Conjunto():
             elemento = self.limpar(elemento)
             listaElementos.replace(elemento, '')
             if len(self.elementos) >= 1:
-                print("E o Conjunto", elemento, "também está contido propriamente no conjunto:", listaElementos)                
+                print("E o Conjunto", elemento, "também está contido propriamente no conjunto:", listaElementos)
+
+    def uniaoConjuntos(self, conj1, conj2):
+        if conj1.contem(conj2):
+            self.adicionar(conj1.elementos)
+            self.tamanho = conj1.tamanho
+            self.nome = str(conj1.nome, ' ∩ ', conj2.nome)
+            print(self.nome, '=', self.__str__())
+        else:
+            
