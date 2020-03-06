@@ -12,7 +12,6 @@ class Conjunto():
         self.nome = nome
 
     def limparString(self, valor):
-
         stringValor = valor.replace(" ", "")
         listaValor = stringValor.split(",")
         return listaValor
@@ -28,15 +27,6 @@ class Conjunto():
         self.elementos.append(valor)
         self.tamanho += 1
 
-    def SubConjunto(self, valor):
-        listaValor = self.limparString(valor)
-        c = Conjunto()
-        for i in listaValor:
-            if i not in c.elementos:
-                c.adicionar(i)
-                c.tamanho += 1
-        self.adicionarSubConjunto(c.elementos)
-
     def limpar(self, listaStr):
         elemento = listaStr
         # print(elemento)
@@ -49,9 +39,7 @@ class Conjunto():
         elemento = str(self.elementos)
         elemento = self.limpar(elemento)
         print(self.nome, "=", elemento)
-
-    def imp(self, conjunto):
-        print(str(conjunto))
+        return elemento
     
     def tamanhoConjunto(self):
         print("|" + self.nome + "|" , "=", self.tamanho)
