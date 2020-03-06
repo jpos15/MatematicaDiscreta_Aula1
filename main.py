@@ -11,7 +11,7 @@ a.adicionar('1,2,3,5,6,7')
 
 b = Conjunto()
 b.nomeConjunto('B')
-b.adicionar('2,3,5')
+b.adicionar('2,3,5,9')
 
 d = Conjunto()
 d.nomeConjunto('Conjunto união')
