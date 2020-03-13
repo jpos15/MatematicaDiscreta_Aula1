@@ -1,3 +1,5 @@
+bd = {}
+
 class Conjunto():
 
     def __init__(self):
@@ -16,12 +18,16 @@ class Conjunto():
         listaValor = stringValor.split(",")
         return listaValor
 
-    def adicionar(self, valor):
-        listaValor = self.limparString(valor)
-        for i in listaValor:
-            if i not in self.elementos:
-                self.elementos.append(i)
-                self.tamanho += 1
+    def adicionar(self, *valor):
+        if valor is None:
+            print('Vazio')
+            return False
+        else:
+            # listaValor = self.limparString(valor)
+            for i in valor:
+                if i not in self.elementos:
+                    self.elementos.append(i)
+                    self.tamanho += 1
 
     def adicionarSubConjunto(self, valor):
         self.elementos.append(valor)
@@ -77,21 +83,28 @@ class Conjunto():
                 print("E o Conjunto", elemento, "também está contido propriamente no conjunto:", listaElementos)
 
     def uniao(self, conjunto1, conjunto2):
-        if len(conjunto1.elementos) != 0 and len(conjunto2.elementos) != 0:
-            if conjunto1.elementos == conjunto2.elementos:
-                self.elementos = conjunto1.elementos
-                print('É igual')
-            else:
-                print('É diferente')
-                self.elementos = conjunto1.elementos
-                for i in conjunto2.elementos:
-                    self.adicionar(i)
+        if len(conjunto1.elementos) == 0:
+            self.elementos = conjunto2.elementos
+            print('Conjunto 1 é vazio')
 
-            if len(conjunto1.elementos) == 0:
-                self.elementos = conjunto2.elementos
-            if len(conjunto2.elementos) == 0:
-                self.elementos = conjunto1.elementos
+        elif len(conjunto2.elementos) == 0:
+            self.elementos = conjunto1.elementos
+            print('Conjunto 2 é vazio')
+
+        elif len(conjunto1.elementos) != 0 and len(conjunto2.elementos) != 0:
+            print('São vazios')
+
+        elif conjunto1.elementos == conjunto2.elementos:
+            self.elementos = conjunto1.elementos
+            print('É igual')
+        
         else:
-            print('Os conjuntos são vazio')
+            print('É diferente')
+            self.elementos = conjunto1.elementos
+            for i in conjunto2.elementos:
+                self.adicionar(i)
+
+        bd[conjunto1.nome + conjunto2.nome]=self.elementos
+        print('Dicionario', bd)
 
         # print(conjunto1.elementos, conjunto2.elementos)

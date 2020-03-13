@@ -7,26 +7,29 @@ a.nomeConjunto('A')
 
 # Adicionando itens ao conjunto
 a.adicionar('a, b, c')
-a.adicionar('1,2,3,5,6,7')
+a.adicionar('1, 2, 3, 5, 6, 7')
+a.imprimir()
 
-# b = Conjunto()
-# b.nomeConjunto('B')
-# b.adicionar('2,3,5,9')
+b = Conjunto()
+b.nomeConjunto('B')
+b.adicionar()
+b.imprimir()
 
-# d = Conjunto()
-# d.nomeConjunto('Conjunto união')
-# d.uniao(a, b)
-# d.imprimir()
+d = Conjunto()
+d.nomeConjunto('Conjunto união')
+d.uniao(a, b)
+d.imprimir()
+
 
 # Adicionando subconjuntos
-z = Conjunto()
-z.nomeConjunto('z')
-z.adicionar("1, 2, 3")
-z.imprimir()
+# z = Conjunto()
+# z.nomeConjunto('z')
+# z.adicionar("1, 2, 3")
+# z.imprimir()
 
-a.adicionarSubConjunto(z.elementos)
+# a.adicionarSubConjunto(z.elementos)
 
-a.imprimir()
+# a.imprimir()
 
 # Imprimindo o conjunto completo
 # a.imprimir()
